@@ -12,8 +12,8 @@
     "app_version": "1.0.0", 
     "utctime_updated": "2017-08-15T19:47:19.054148Z", 
     "package_name": "phantom_nsx", 
-    "main_module": "nsx_connector.py", 
-    "min_phantom_version": "3.0.159", 
+    "main_module": "nsx_connector.pyc", 
+    "min_phantom_version": "3.0.247",
     "app_wizard_version": "1.0.0", 
     "configuration": {
         "username": {
@@ -92,7 +92,7 @@
                     "default": "6", 
                     "order": 1
                 },
-                    "ip": {
+                "ip": {
                     "description": "IP to block (optional)", 
                     "data_type": "string", 
                     "required": true, 
@@ -217,7 +217,7 @@
             "identifier": "create_security_tag",
             "description": "Create Security Tag",
             "verbose": "",
-            "type": "correct",
+            "type": "generic",
             "read_only": false,
             "parameters": {
                 "tag": {
@@ -226,7 +226,7 @@
                     "required": true,
                     "primary": true,
                     "contains": [
-                        "tag"
+                        "nsx tag"
                     ],
                     "value_list": [],
                     "default": "",
@@ -238,7 +238,7 @@
                     "data_path": "action_result.parameter.tag",
                     "data_type": "string",
                     "contains": [
-                        "tag"
+                        "nsx tag"
                     ],
                     "column_name": "tag",
                     "column_order": 0
@@ -272,7 +272,7 @@
             "identifier": "create_security_group",
             "description": "Create Security Group",
             "verbose": "",
-            "type": "correct",
+            "type": "generic",
             "read_only": false,
             "parameters": {
                 "group": {
@@ -281,7 +281,7 @@
                     "required": true,
                     "primary": true,
                     "contains": [
-                        "group"
+                        "nsx group"
                     ],
                     "value_list": [],
                     "default": "",
@@ -293,7 +293,7 @@
                     "data_path": "action_result.parameter.group",
                     "data_type": "string",
                     "contains": [
-                        "group"
+                        "nsx group"
                     ],
                     "column_name": "Group",
                     "column_order": 0
@@ -327,7 +327,7 @@
             "identifier": "attach_security_tag",
             "description": "Attach Security Tag",
             "verbose": "",
-            "type": "correct",
+            "type": "generic",
             "read_only": false,
             "parameters": {
                 "tag": {
@@ -336,7 +336,7 @@
                     "required": true,
                     "primary": true,
                     "contains": [
-                        "tag"
+                        "nsx tag"
                     ],
                     "value_list": [],
                     "default": "",
@@ -348,7 +348,7 @@
                     "required": true,
                     "primary": true,
                     "contains": [
-                        "vmobjectid"
+                        "nsx vmobjectid"
                     ],
                     "value_list": [],
                     "default": "",
@@ -360,7 +360,7 @@
                     "data_path": "action_result.parameter.tag",
                     "data_type": "string",
                     "contains": [
-                        "tag"
+                        "nsx tag"
                     ],
                     "column_name": "tag",
                     "column_order": 0
@@ -369,7 +369,7 @@
                     "data_path": "action_result.parameter.vmobjectid",
                     "data_type": "string",
                     "contains": [
-                        "vmobjectid"
+                        "nsx vmobjectid"
                     ],
                     "column_name": "VMObjectId",
                     "column_order": 1
