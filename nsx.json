@@ -1,7 +1,7 @@
 {
     "appid": "df12a39a-2811-4d41-b95f-abfe0c4db297", 
     "name": "NSX", 
-    "description": "This app implements investigative and management action on VMware NSX, Network Virtualization and Security Platform.", 
+    "description": "This app implements investigative and management action on VMware NSX, Network Virtualization and Security Platform", 
     "type": "network security", 
     "product_vendor": "VMware", 
     "logo": "nsx.png", 
@@ -52,7 +52,7 @@
         {
             "action": "test connectivity", 
             "identifier": "test_connectivity", 
-            "description": "Validate the asset configuration for connectivity using supplied configuration.", 
+            "description": "Validate the asset configuration for connectivity using supplied configuration", 
             "verbose": "", 
             "type": "test", 
             "read_only": true, 
