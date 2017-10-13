@@ -13,7 +13,7 @@
     "utctime_updated": "2017-08-15T19:47:19.054148Z", 
     "package_name": "phantom_nsx", 
     "main_module": "nsx_connector.pyc", 
-    "min_phantom_version": "3.0.247",
+    "min_phantom_version": "3.0.251",
     "app_wizard_version": "1.0.0", 
     "configuration": {
         "username": {
@@ -35,8 +35,8 @@
         "verify_server_cert": {
             "description": "Verify server certificate", 
             "data_type": "boolean", 
-            "required": false, 
-            "default": false, 
+            "required": true, 
+            "default": true, 
             "order": 2
         }, 
         "nsx_manager": {
