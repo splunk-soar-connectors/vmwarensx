@@ -142,7 +142,7 @@ class NsxConnector(BaseConnector):
                             auth=(config['username'], config['password']),
                             data=data,
                             headers={'Content-Type': 'application/xml'},
-                            verify=config.get('verify_server_cert', False))
+                            verify=config.get('verify_server_cert', True))
         except Exception as e:
             return RetVal(action_result.set_status( phantom.APP_ERROR, "Error Connecting to server. Details: {0}".format(str(e))), resp_json)
 
