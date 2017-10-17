@@ -9,7 +9,7 @@
     "product_version_regex": ".*", 
     "publisher": "VMware", 
     "license": "Copyright VMware 2017", 
-    "app_version": "1.0.0", 
+    "app_version": "1.0.1", 
     "utctime_updated": "2017-08-15T19:47:19.054148Z", 
     "package_name": "phantom_nsx", 
     "main_module": "nsx_connector.pyc", 
@@ -213,7 +213,7 @@
             "versions": "EQ(*)"
         },
         {
-            "action": "create security tag",
+            "action": "create tag",
             "identifier": "create_security_tag",
             "description": "Create Security Tag",
             "verbose": "",
@@ -268,7 +268,7 @@
             "versions": "EQ(*)"
         },
         {
-            "action": "create security group",
+            "action": "create group",
             "identifier": "create_security_group",
             "description": "Create Security Group",
             "verbose": "",
@@ -323,7 +323,7 @@
             "versions": "EQ(*)"
         },
         {
-            "action": "attach security tag",
+            "action": "add tag",
             "identifier": "attach_security_tag",
             "description": "Attach Security Tag",
             "verbose": "",
