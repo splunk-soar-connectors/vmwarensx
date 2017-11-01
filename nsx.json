@@ -28,8 +28,6 @@
             "description": "Administrator password", 
             "data_type": "password", 
             "required": true, 
-            "value_list": [], 
-            "default": "", 
             "order": 1
         }, 
         "verify_server_cert": {
