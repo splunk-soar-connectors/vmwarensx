@@ -1,5 +1,5 @@
 # -----------------------------------------
-# Phantom sample App Connector python file
+# Phantom NSX App Connector python file
 # -----------------------------------------
 
 # Phantom App imports
@@ -153,15 +153,9 @@ class NsxConnector(BaseConnector):
         # Add an action result object to self (BaseConnector) to represent the action for this param
         action_result = self.add_action_result(ActionResult(dict(param)))
 
-        # NOTE: test connectivity does _NOT_ take any parameters
-        # i.e. the param dictionary passed to this handler will be empty.
-        # Also typically it does not add any data into an action_result either.
-        # The status and progress messages are more important.
-
-        """
-        # self.save_progress("Connecting to endpoint")
+        self.save_progress("Connecting to endpoint to get global info")
         # make rest call
-        ret_val, response = self._make_rest_call('/endpoint', action_result, params=None, headers=None)
+        ret_val, response = self._make_rest_call('/api/1.0/appliance-management/global/info', action_result, params=None, headers=None)
 
         if (phantom.is_fail(ret_val)):
             # the call to the 3rd party device or service failed, action result should contain all the error details
@@ -169,14 +163,20 @@ class NsxConnector(BaseConnector):
             self.save_progress("Test Connectivity Failed. Error: {0}".format(action_result.get_message()))
             return action_result.get_status()
 
-        # Return success
-        # self.save_progress("Test Connectivity Passed")
-        # return action_result.set_status(phantom.APP_SUCCESS)
-        """
+        version_info = response.get('globalInfo', {}).get('versionInfo')
 
-        # For now return Error with a message, in case of success we don't set the message, but use the summary
-        self.save_progress("Test Connectivity Failed, action not yet implemented")
-        return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
+        if (version_info):
+            version_string = '{0}.{1}.{2}.{3}'.format(
+                    version_info['majorVersion'] if 'majorVersion' in version_info else '-',
+                    version_info['minorVersion'] if 'minorVersion' in version_info else '-',
+                    version_info['patchVersion'] if 'patchVersion' in version_info else '-',
+                    version_info['buildNumber'] if 'buildNumber' in version_info else '-')
+
+            self.save_progress("Got version: {0}".format(version_string))
+
+        # Return success
+        self.save_progress("Test Connectivity Passed")
+        return action_result.set_status(phantom.APP_SUCCESS)
 
     def _handle_block_port(self, param):
 

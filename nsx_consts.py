@@ -1,3 +1,7 @@
+# -----------------------------------------
+# Phantom NSX App Consts python file
+# -----------------------------------------
+
 BLOCK_IP_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <section name="{section_name}" type="LAYER3">
     <rule disabled="false" logged="true">
