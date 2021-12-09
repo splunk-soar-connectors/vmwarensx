@@ -1,69 +1,69 @@
 {
-    "appid": "df12a39a-2811-4d41-b95f-abfe0c4db297", 
-    "name": "NSX", 
-    "description": "This app implements investigative and management action on VMware NSX, Network Virtualization and Security Platform", 
-    "type": "network security", 
-    "product_vendor": "VMware", 
-    "logo": "nsx.png", 
-    "product_name": "NSX", 
-    "product_version_regex": ".*", 
-    "publisher": "VMware", 
-    "license": "Copyright VMware 2017", 
-    "app_version": "1.0.3", 
-    "utctime_updated": "2017-08-15T19:47:19.054148Z", 
-    "package_name": "phantom_nsx", 
-    "main_module": "nsx_connector.pyc", 
+    "appid": "df12a39a-2811-4d41-b95f-abfe0c4db297",
+    "name": "NSX",
+    "description": "This app implements investigative and management action on VMware NSX, Network Virtualization and Security Platform",
+    "type": "network security",
+    "product_vendor": "VMware",
+    "logo": "nsx.png",
+    "product_name": "NSX",
+    "product_version_regex": ".*",
+    "publisher": "VMware",
+    "license": "Copyright VMware 2017",
+    "app_version": "1.0.3",
+    "utctime_updated": "2017-08-15T19:47:19.054148Z",
+    "package_name": "phantom_nsx",
+    "main_module": "nsx_connector.pyc",
     "min_phantom_version": "3.0.251",
-    "app_wizard_version": "1.0.0", 
+    "app_wizard_version": "1.0.0",
     "configuration": {
         "nsx_manager": {
-            "description": "NSX Manager IP/Hostname", 
-            "data_type": "string", 
-            "required": true, 
-            "value_list": [], 
-            "default": "", 
+            "description": "NSX Manager IP/Hostname",
+            "data_type": "string",
+            "required": true,
+            "value_list": [],
+            "default": "",
             "order": 0
         },
         "verify_server_cert": {
-            "description": "Verify server certificate", 
-            "data_type": "boolean", 
-            "required": true, 
-            "default": false, 
+            "description": "Verify server certificate",
+            "data_type": "boolean",
+            "required": true,
+            "default": false,
             "order": 1
-        }, 
+        },
         "username": {
-            "description": "Administrator username", 
-            "data_type": "string", 
-            "required": true, 
-            "default": "admin", 
+            "description": "Administrator username",
+            "data_type": "string",
+            "required": true,
+            "default": "admin",
             "order": 2
-        }, 
+        },
         "password": {
-            "description": "Administrator password", 
-            "data_type": "password", 
-            "required": true, 
+            "description": "Administrator password",
+            "data_type": "password",
+            "required": true,
             "order": 3
-        } 
-    }, 
+        }
+    },
     "actions": [
         {
-            "action": "test connectivity", 
-            "identifier": "test_connectivity", 
-            "description": "Validate the asset configuration for connectivity using supplied configuration", 
-            "verbose": "", 
-            "type": "test", 
-            "read_only": true, 
-            "parameters": {}, 
-            "output": [], 
+            "action": "test connectivity",
+            "identifier": "test_connectivity",
+            "description": "Validate the asset configuration for connectivity using supplied configuration",
+            "verbose": "",
+            "type": "test",
+            "read_only": true,
+            "parameters": {},
+            "output": [],
             "versions": "EQ(*)"
-        }, 
+        },
         {
-            "action": "block port", 
-            "identifier": "block_port", 
-            "description": "Block an application port", 
-            "verbose": "", 
-            "type": "contain", 
-            "read_only": false, 
+            "action": "block port",
+            "identifier": "block_port",
+            "description": "Block an application port",
+            "verbose": "",
+            "type": "contain",
+            "read_only": false,
             "parameters": {
                 "port": {
                     "description": "L4 Port to block",
@@ -76,32 +76,32 @@
                     "value_list": [],
                     "default": "",
                     "order": 0
-                },                
+                },
                 "protocol": {
-                    "description": "IP Protocol number to block", 
-                    "data_type": "numeric", 
-                    "required": true, 
-                    "primary": false, 
+                    "description": "IP Protocol number to block",
+                    "data_type": "numeric",
+                    "required": true,
+                    "primary": false,
                     "contains": [
                         "protocol"
-                    ], 
-                    "value_list": [], 
-                    "default": "6", 
+                    ],
+                    "value_list": [],
+                    "default": "6",
                     "order": 1
                 },
                 "ip": {
-                    "description": "IP to block (optional)", 
-                    "data_type": "string", 
-                    "required": true, 
-                    "primary": false, 
+                    "description": "IP to block (optional)",
+                    "data_type": "string",
+                    "required": true,
+                    "primary": false,
                     "contains": [
                         "ip"
-                    ], 
-                    "value_list": [], 
-                    "default": "0.0.0.0", 
+                    ],
+                    "value_list": [],
+                    "default": "0.0.0.0",
                     "order": 2
                 }
-            }, 
+            },
             "output": [
                 {
                     "data_path": "action_result.parameter.port",
@@ -113,100 +113,100 @@
                     "column_order": 0
                 },
                 {
-                    "data_path": "action_result.parameter.protocol", 
-                    "data_type": "numeric", 
+                    "data_path": "action_result.parameter.protocol",
+                    "data_type": "numeric",
                     "contains": [
                         "protocol"
-                    ], 
-                    "column_name": "IP Protocol", 
+                    ],
+                    "column_name": "IP Protocol",
                     "column_order": 1
                 },
-                                {
-                    "data_path": "action_result.parameter.ip", 
-                    "data_type": "string", 
+                {
+                    "data_path": "action_result.parameter.ip",
+                    "data_type": "string",
                     "contains": [
                         "ip"
-                    ], 
-                    "column_name": "IP", 
+                    ],
+                    "column_name": "IP",
                     "column_order": 2
                 },
                 {
-                    "data_path": "action_result.status", 
-                    "data_type": "string", 
-                    "column_name": "status", 
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "column_name": "status",
                     "column_order": 3
-                }, 
+                },
                 {
-                    "data_path": "action_result.message", 
+                    "data_path": "action_result.message",
                     "data_type": "string"
-                }, 
+                },
                 {
-                    "data_path": "summary.total_objects", 
+                    "data_path": "summary.total_objects",
                     "data_type": "numeric"
-                }, 
+                },
                 {
-                    "data_path": "summary.total_objects_successful", 
+                    "data_path": "summary.total_objects_successful",
                     "data_type": "numeric"
                 }
-            ], 
+            ],
             "render": {
                 "type": "table"
-            }, 
+            },
             "versions": "EQ(*)"
-        }, 
+        },
         {
-            "action": "block ip", 
-            "identifier": "block_ip", 
-            "description": "Block an IP", 
-            "verbose": "", 
-            "type": "contain", 
-            "read_only": false, 
+            "action": "block ip",
+            "identifier": "block_ip",
+            "description": "Block an IP",
+            "verbose": "",
+            "type": "contain",
+            "read_only": false,
             "parameters": {
                 "ip": {
-                    "description": "IP to block", 
-                    "data_type": "string", 
-                    "required": true, 
-                    "primary": true, 
+                    "description": "IP to block",
+                    "data_type": "string",
+                    "required": true,
+                    "primary": true,
                     "contains": [
                         "ip"
-                    ], 
-                    "value_list": [], 
-                    "default": "", 
+                    ],
+                    "value_list": [],
+                    "default": "",
                     "order": 0
                 }
-            }, 
+            },
             "output": [
                 {
-                    "data_path": "action_result.parameter.ip", 
-                    "data_type": "string", 
+                    "data_path": "action_result.parameter.ip",
+                    "data_type": "string",
                     "contains": [
                         "ip"
-                    ], 
-                    "column_name": "ip", 
+                    ],
+                    "column_name": "ip",
                     "column_order": 0
-                }, 
+                },
                 {
-                    "data_path": "action_result.status", 
-                    "data_type": "string", 
-                    "column_name": "status", 
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "column_name": "status",
                     "column_order": 1
-                }, 
+                },
                 {
-                    "data_path": "action_result.message", 
+                    "data_path": "action_result.message",
                     "data_type": "string"
-                }, 
+                },
                 {
-                    "data_path": "summary.total_objects", 
+                    "data_path": "summary.total_objects",
                     "data_type": "numeric"
-                }, 
+                },
                 {
-                    "data_path": "summary.total_objects_successful", 
+                    "data_path": "summary.total_objects_successful",
                     "data_type": "numeric"
                 }
-            ], 
+            ],
             "render": {
                 "type": "table"
-            }, 
+            },
             "versions": "EQ(*)"
         },
         {
@@ -394,6 +394,46 @@
                 "type": "table"
             },
             "versions": "EQ(*)"
-        }              
-    ]
+        }
+    ],
+    "pip_dependencies": {
+        "wheel": [
+            {
+                "module": "backports.functools_lru_cache",
+                "input_file": "wheels/backports.functools_lru_cache-1.6.4-py2.py3-none-any.whl"
+            },
+            {
+                "module": "beautifulsoup4",
+                "input_file": "wheels/beautifulsoup4-4.9.1-py2-none-any.whl"
+            },
+            {
+                "module": "certifi",
+                "input_file": "wheels/certifi-2021.10.8-py2.py3-none-any.whl"
+            },
+            {
+                "module": "chardet",
+                "input_file": "wheels/chardet-3.0.4-py2.py3-none-any.whl"
+            },
+            {
+                "module": "idna",
+                "input_file": "wheels/idna-2.10-py2.py3-none-any.whl"
+            },
+            {
+                "module": "requests",
+                "input_file": "wheels/requests-2.25.0-py2.py3-none-any.whl"
+            },
+            {
+                "module": "soupsieve",
+                "input_file": "wheels/soupsieve-1.9.6-py2.py3-none-any.whl"
+            },
+            {
+                "module": "urllib3",
+                "input_file": "wheels/urllib3-1.26.7-py2.py3-none-any.whl"
+            },
+            {
+                "module": "xmltodict",
+                "input_file": "wheels/xmltodict-0.12.0-py2.py3-none-any.whl"
+            }
+        ]
+    }
 }
